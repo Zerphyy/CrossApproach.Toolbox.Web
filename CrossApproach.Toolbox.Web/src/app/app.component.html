@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Create a new Moodle instance</h1>
+  <form (ngSubmit)="onSubmit()" #moodleForm="ngForm">
+    <div class="form-group">
+      <label for="instanceName">Moodle Instance Name</label>
+      <input type="text" id="instanceName" name="instanceName" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="adminPassword">Admin Password</label>
+      <input type="password" id="adminPassword" name="adminPassword" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="adminEmail">Admin Email</label>
+      <input type="email" id="adminEmail" name="adminEmail" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!moodleForm.form.valid">Create Instance</button>
+  </form>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+</div>
+
+<router-outlet />
